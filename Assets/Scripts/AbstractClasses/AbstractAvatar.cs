@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AbstractAvatar : MonoBehaviour
+public abstract class AbstractAvatar : MonoBehaviour
 {
     public float currentHealth = 0;
     public float healthMax = 0;
