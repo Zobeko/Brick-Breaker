@@ -3,10 +3,12 @@
 public class InputManager : MonoBehaviour
 {
     private PlayerAvatar playerAvatar = null;
+    private AbstractBall abstractBall = null;
 
-    private void Awake()
+    private void Start()
     {
         playerAvatar = this.GetComponent<PlayerAvatar>();
+        abstractBall = playerAvatar.currentBall.GetComponent<AbstractBall>();
     }
 
     private void Update()
@@ -26,9 +28,9 @@ public class InputManager : MonoBehaviour
 
     private void BallLauncher()
     {
-        if (Input.GetButtonDown("Launch"))
+        if (Input.GetButtonDown("Launch") && !abstractBall.BallIsLaunched)
         {
-            playerAvatar.currentBall.GetComponent<AbstractBall>().BallIsLaunched = true;
+            abstractBall.BallIsLaunched = true;
         }
     }
 }

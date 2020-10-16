@@ -15,7 +15,7 @@ public abstract class AbstractBall : MonoBehaviour
         set { transform.position = value; }
     }
 
-    private bool ballIsLaunched = false;
+    [SerializeField] private bool ballIsLaunched = false;
     public bool BallIsLaunched
     {
         get { return ballIsLaunched;  }
