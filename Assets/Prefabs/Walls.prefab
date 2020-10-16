@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 8829933161804886496}
   m_Layer: 8
   m_Name: LeftWall (1)
-  m_TagString: Walls
+  m_TagString: Roof
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

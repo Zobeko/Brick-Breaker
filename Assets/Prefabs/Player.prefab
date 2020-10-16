@@ -139,6 +139,10 @@ MonoBehaviour:
   healthMax: 100
   speed: {x: 0, y: 0}
   speedMax: 1300
+  balls:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &5893913675819658388
 MonoBehaviour:
   m_ObjectHideFlags: 0

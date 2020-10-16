@@ -27,6 +27,12 @@ public class GameManager : MonoBehaviour
     {
         playerInstance = Instantiate(playerPrefab);
 
-        Instantiate(ballPrefab);
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject ball = Instantiate(ballPrefab);
+            ball.SetActive(false);
+            playerInstance.GetComponent<PlayerAvatar>().balls[i] = ball;
+        }
+        
     }
 }

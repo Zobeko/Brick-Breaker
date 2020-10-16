@@ -18,9 +18,16 @@ public class PlayerAvatar : AbstractAvatar
         set { speedMax = value; }
     }
 
+    public GameObject[] balls = new GameObject[3];
+    public GameObject currentBall = null;
+    private int currentBallIndex = 0;
+
     void Start()
     {
-        
+        currentBallIndex = 0;
+        currentBall = balls[currentBallIndex];
+
+        currentBall.SetActive(true);
     }
 
 
