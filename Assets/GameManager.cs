@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.XR.WSA.Input;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
+    public static GameManager instance;
 
     [SerializeField] private GameObject playerPrefab = null;
+    [SerializeField] private GameObject ballPrefab = null;
 
-    private void Start()
+    public GameObject playerInstance = null;
+
+    private void Awake()
     {
         if (instance != null && instance != this)
         {
@@ -16,13 +18,15 @@ public class GameManager : MonoBehaviour
 
         instance = this;
 
-        PlayerInstanciation();
+        Instanciation();
     }
 
 
 
-    private void PlayerInstanciation()
+    private void Instanciation()
     {
-        Instantiate(playerPrefab);
+        playerInstance = Instantiate(playerPrefab);
+
+        Instantiate(ballPrefab);
     }
 }

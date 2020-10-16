@@ -19,7 +19,6 @@ public class InputManager : MonoBehaviour
     private void HorizontalMovements()
     {
         float HorizMvt = Input.GetAxis("Horizontal");
-        Debug.Log(HorizMvt);
         playerAvatar.Speed = new Vector2(HorizMvt, 0) * playerAvatar.SpeedMax ;
     }
 }
