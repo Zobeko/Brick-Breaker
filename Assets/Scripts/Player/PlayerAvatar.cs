@@ -2,13 +2,28 @@
 
 public class PlayerAvatar : AbstractAvatar
 {
-    // Start is called before the first frame update
+    //Speed
+    [SerializeField]private Vector2 speed = Vector2.zero;
+    public Vector2 Speed
+    {
+        get { return speed; }
+        set { speed = value; }
+    }
+
+    //SpeedMax
+    [SerializeField] private float speedMax = 0;
+    public float SpeedMax
+    {
+        get { return speedMax; }
+        set { speedMax = value; }
+    }
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
