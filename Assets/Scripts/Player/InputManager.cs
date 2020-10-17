@@ -28,9 +28,9 @@ public class InputManager : MonoBehaviour
 
     private void BallLauncher()
     {
-        if (Input.GetButtonDown("Launch") && !abstractBall.BallIsLaunched)
+        if (Input.GetButtonDown("Launch") && !abstractBall.ballIsLaunched)
         {
-            abstractBall.BallIsLaunched = true;
+            abstractBall.ballIsLaunched = true;
         }
     }
 }

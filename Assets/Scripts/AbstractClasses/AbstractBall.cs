@@ -15,28 +15,14 @@ public abstract class AbstractBall : MonoBehaviour
         set { transform.position = value; }
     }
 
-    [SerializeField] private bool ballIsLaunched = false;
-    public bool BallIsLaunched
-    {
-        get { return ballIsLaunched;  }
-        set
-        {
-            
-            if (!ballIsLaunched)
-            {
-                //Lance la balle en direction diagonale vers la droite
-                Speed = new Vector2(initialBallSpeed, initialBallSpeed) * Time.deltaTime;
-            }
-            ballIsLaunched = value;
-
-
-        }
-    }
+    public bool ballIsLaunched = false;
+    
     [SerializeField] private GameObject player = null;
     [SerializeField] private Rigidbody2D playerRigidBody = null;
     [SerializeField] private Rigidbody2D rigidBody = null;
     public float initialBallSpeed = 0f;
     public float damages = 0;
+    [SerializeField] protected int launchCpt = 0;
 
 
 
@@ -49,10 +35,10 @@ public abstract class AbstractBall : MonoBehaviour
 
     }
 
-
+   
     
 
-    protected void LaunchBall()
+    protected void KeepBallOnRacket()
     {
         if (!ballIsLaunched)
         {
@@ -69,7 +55,7 @@ public abstract class AbstractBall : MonoBehaviour
 
         if (col.transform.CompareTag("Roof"))
         {
-            if(Speed.x < 0)
+            if(Speed.x <= 0)
             {
                 Speed = new Vector2(-initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
             }
@@ -83,9 +69,9 @@ public abstract class AbstractBall : MonoBehaviour
         else if (col.transform.CompareTag("Walls"))
         {
 
-            if (Speed.x < 0)
+            if (Speed.x <= 0)
             {
-                if(Speed.y < 0)
+                if(Speed.y <= 0)
                 {
                     Speed = new Vector2(initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
                 }
@@ -97,7 +83,7 @@ public abstract class AbstractBall : MonoBehaviour
             }
             else
             {
-                if (Speed.y < 0)
+                if (Speed.y <= 0)
                 {
                     Speed = new Vector2(-initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
                 }
@@ -110,7 +96,7 @@ public abstract class AbstractBall : MonoBehaviour
 
         else if (col.transform.CompareTag("Player"))
         {
-            if (Speed.x < 0)
+            if (Speed.x <= 0)
             {
                 Speed = new Vector2(-initialBallSpeed, initialBallSpeed) * Time.deltaTime;
             }

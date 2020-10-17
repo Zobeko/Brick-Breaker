@@ -9,6 +9,13 @@ public class SimpleBall : AbstractBall
 
     void FixedUpdate()
     {
-        LaunchBall();
+        KeepBallOnRacket();
+
+        if (ballIsLaunched && launchCpt == 0)
+        {
+            launchCpt++;
+            //Lance la balle en direction diagonale vers la droite
+            Speed = new Vector2(initialBallSpeed, initialBallSpeed) * Time.deltaTime;
+        }
     }
 }

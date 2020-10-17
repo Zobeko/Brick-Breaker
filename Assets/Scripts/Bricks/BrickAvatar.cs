@@ -22,8 +22,8 @@ public class BrickAvatar : AbstractAvatar
         width = spriteRenderer.bounds.size.x;
         height = spriteRenderer.bounds.size.y;
 
-        raycastsDistanceWidth = height / 2;
-        raycastsDistanceheight = width / 2;
+        raycastsDistanceWidth = (height / 2) + 0.2f;
+        raycastsDistanceheight = (width / 2) + 0.2f;
 
         Debug.Log(width);
         Debug.Log(height);
@@ -35,9 +35,14 @@ public class BrickAvatar : AbstractAvatar
         playerAvatar = gameManager.GetComponent<GameManager>().playerInstance.GetComponent<PlayerAvatar>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         RaycastCollisions();
+    }
+
+    private void Update()
+    {
+        
 
         Die();
     }
@@ -54,7 +59,7 @@ public class BrickAvatar : AbstractAvatar
         {
 
             Vector2 raycastPosition = new Vector2(this.transform.position.x - (width / 2) + (i + 1) * (width / numberOfRaycastByWidth), this.transform.position.y);
-
+            //Debug.DrawRay(raycastPosition, Vector2.up * Mathf.Infinity, Color.red, Mathf.Infinity);
 
             if (Physics2D.Raycast(raycastPosition, Vector2.up, raycastsDistanceWidth, ballLayerMask))
             {
@@ -66,6 +71,8 @@ public class BrickAvatar : AbstractAvatar
                 {
                     currentBallAvatar.Speed = new Vector2(currentBallAvatar.initialBallSpeed, currentBallAvatar.initialBallSpeed) * Time.deltaTime;
                 }
+
+                
 
                 currentHealth -= currentBallAvatar.damages;
 
