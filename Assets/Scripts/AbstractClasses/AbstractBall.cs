@@ -2,11 +2,11 @@
 
 public abstract class AbstractBall : MonoBehaviour
 {
-    [SerializeField] private Vector2 speed = Vector2.zero;
+    
     public Vector2 Speed
     {
-        get { return speed; }
-        set { speed = value; }
+        get { return this.GetComponent<Rigidbody2D>().velocity; }
+        set { this.GetComponent<Rigidbody2D>().velocity = value; }
     }
 
     public Vector2 Position
@@ -21,12 +21,13 @@ public abstract class AbstractBall : MonoBehaviour
         get { return ballIsLaunched;  }
         set
         {
-            ballIsLaunched = value;
-            if (ballIsLaunched)
+            
+            if (!ballIsLaunched)
             {
                 //Lance la balle en direction diagonale vers la droite
-                rigidBody.velocity = new Vector2(initialBallSpeed, initialBallSpeed) * Time.deltaTime;
+                Speed = new Vector2(initialBallSpeed, initialBallSpeed) * Time.deltaTime;
             }
+            ballIsLaunched = value;
 
 
         }
@@ -34,7 +35,8 @@ public abstract class AbstractBall : MonoBehaviour
     [SerializeField] private GameObject player = null;
     [SerializeField] private Rigidbody2D playerRigidBody = null;
     [SerializeField] private Rigidbody2D rigidBody = null;
-    [SerializeField] private float initialBallSpeed = 0f;
+    public float initialBallSpeed = 0f;
+    public float damages = 0;
 
 
 
@@ -67,13 +69,13 @@ public abstract class AbstractBall : MonoBehaviour
 
         if (col.transform.CompareTag("Roof"))
         {
-            if(rigidBody.velocity.x < 0)
+            if(Speed.x < 0)
             {
-                rigidBody.velocity = new Vector2(-initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
+                Speed = new Vector2(-initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
             }
             else
             {
-                rigidBody.velocity = new Vector2(initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
+                Speed = new Vector2(initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
             }
 
             
@@ -81,40 +83,40 @@ public abstract class AbstractBall : MonoBehaviour
         else if (col.transform.CompareTag("Walls"))
         {
 
-            if (rigidBody.velocity.x < 0)
+            if (Speed.x < 0)
             {
-                if(rigidBody.velocity.y < 0)
+                if(Speed.y < 0)
                 {
-                    rigidBody.velocity = new Vector2(initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
+                    Speed = new Vector2(initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
                 }
                 else
                 {
-                    rigidBody.velocity = new Vector2(initialBallSpeed, initialBallSpeed) * Time.deltaTime;
+                    Speed = new Vector2(initialBallSpeed, initialBallSpeed) * Time.deltaTime;
                 }
                 
             }
             else
             {
-                if (rigidBody.velocity.y < 0)
+                if (Speed.y < 0)
                 {
-                    rigidBody.velocity = new Vector2(-initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
+                    Speed = new Vector2(-initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
                 }
                 else
                 {
-                    rigidBody.velocity = new Vector2(-initialBallSpeed, initialBallSpeed) * Time.deltaTime;
+                    Speed = new Vector2(-initialBallSpeed, initialBallSpeed) * Time.deltaTime;
                 }
             }
         }
 
         else if (col.transform.CompareTag("Player"))
         {
-            if (rigidBody.velocity.x < 0)
+            if (Speed.x < 0)
             {
-                rigidBody.velocity = new Vector2(-initialBallSpeed, initialBallSpeed) * Time.deltaTime;
+                Speed = new Vector2(-initialBallSpeed, initialBallSpeed) * Time.deltaTime;
             }
             else
             {
-                rigidBody.velocity = new Vector2(initialBallSpeed, initialBallSpeed) * Time.deltaTime;
+                Speed = new Vector2(initialBallSpeed, initialBallSpeed) * Time.deltaTime;
             }
         }
     }

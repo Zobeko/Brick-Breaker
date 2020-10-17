@@ -2,6 +2,8 @@
 
 public class PlayerAvatar : AbstractAvatar
 {
+
+
     //Speed
     [SerializeField]private Vector2 speed = Vector2.zero;
     public Vector2 Speed

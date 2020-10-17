@@ -12,24 +12,19 @@ public abstract class AbstractAvatar : MonoBehaviour
         set { transform.position = value; }
     }
 
-    private Rigidbody2D rb = null;
-    public Rigidbody2D RigidBody
-    {
-        get { return rb; }
-        set { rb = value; }
-    }
+    public Rigidbody2D RigidBody { get; set; } = null;
 
     private void Awake()
     {
-        rb = this.GetComponent<Rigidbody2D>();
+        RigidBody = this.GetComponent<Rigidbody2D>();
         currentHealth = healthMax;
     }
 
-    private void Die()
+    protected void Die()
     {
         if(currentHealth <= 0)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }
