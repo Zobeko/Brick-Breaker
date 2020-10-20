@@ -2,8 +2,9 @@
 
 public abstract class AbstractAvatar : MonoBehaviour
 {
-    public float currentHealth = 0;
     public float healthMax = 0;
+    public float currentHealth = 0;
+    
 
     //[SerializeField] private Vector2 position = Vector2.zero;
     public Vector2 Position
@@ -14,11 +15,7 @@ public abstract class AbstractAvatar : MonoBehaviour
 
     public Rigidbody2D RigidBody { get; set; } = null;
 
-    private void Awake()
-    {
-        RigidBody = this.GetComponent<Rigidbody2D>();
-        currentHealth = healthMax;
-    }
+    
 
     protected void Die()
     {

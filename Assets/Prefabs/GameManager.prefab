@@ -47,3 +47,8 @@ MonoBehaviour:
     type: 3}
   ballPrefab: {fileID: 4410809181998289888, guid: f97a5f000f70b704f8f59c2f1c8dac60,
     type: 3}
+  simpleBrickPrefab: {fileID: 1225008739339059297, guid: 8c3afaef5a7e8eb4ebf9478a603413e6,
+    type: 3}
+  numberOfBricksByLine: 8
+  numberOfBricksByColumn: 5
+  playerInstance: {fileID: 0}

@@ -4,52 +4,34 @@ public class BrickAvatar : AbstractAvatar
 {
     [SerializeField] private int numberOfRaycastByWidth = 0;
     [SerializeField] private int numberOfRaycastByHeight = 0;
-    private float raycastsDistanceWidth = 0;
-    private float raycastsDistanceheight = 0;
+    protected float raycastsDistanceWidth = 0;
+    protected float raycastsDistanceheight = 0;
     [SerializeField] private LayerMask ballLayerMask;
-    [SerializeField] private GameObject gameManager = null;
+    [SerializeField] protected GameObject gameManager = null;
     
-    private SpriteRenderer spriteRenderer = null;
-    private float width = 0f;
-    private float height = 0f;
-    private PlayerAvatar playerAvatar= null;
+    protected SpriteRenderer spriteRenderer = null;
+    public float width = 0f;
+    public float height = 0f;
+    [SerializeField]private PlayerAvatar playerAvatar;
+
+    //Enum qui contient les differents types de briques
+    public enum BrickType { simpleBrick };
+    public BrickType brickType;
 
 
 
-    private void Awake()
+    void Start()
     {
-        spriteRenderer = this.GetComponent<SpriteRenderer>();
-        width = spriteRenderer.bounds.size.x;
-        height = spriteRenderer.bounds.size.y;
-
-        raycastsDistanceWidth = (height / 2) + 0.2f;
-        raycastsDistanceheight = (width / 2) + 0.2f;
-
-
+        Debug.Log("Okkk");
+        playerAvatar = GameManager.instance.playerInstanceAvatar;
     }
 
-    private void Start()
-    {
-        playerAvatar = gameManager.GetComponent<GameManager>().playerInstance.GetComponent<PlayerAvatar>();
-    }
 
-    private void FixedUpdate()
-    {
-        RaycastCollisions();
-    }
 
-    private void Update()
-    {
-        
-
-        Die();
-    }
-
-    private void RaycastCollisions()
+    protected void RaycastCollisions()
     {
         //Gere toutes les collisions sur les briques
-
-        AbstractBall currentBallAvatar = playerAvatar.currentBall.GetComponent<AbstractBall>();
+        AbstractBall currentBallAvatar = playerAvatar.currentBall.GetComponent<SimpleBall>();
 
 
         //Colisions face haute
@@ -145,6 +127,14 @@ public class BrickAvatar : AbstractAvatar
             }
         }
 
+    }
+
+    protected void Die()
+    {
+        if(currentHealth <= 0)
+        {
+            BricksFactory.ReleaseBrick(this);
+        }
     }
     
 

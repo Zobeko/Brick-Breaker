@@ -24,6 +24,12 @@ public class PlayerAvatar : AbstractAvatar
     public GameObject currentBall = null;
     private int currentBallIndex = 0;
 
+    private void Awake()
+    {
+        RigidBody = this.GetComponent<Rigidbody2D>();
+        currentHealth = healthMax;
+    }
+
     void Start()
     {
         currentBallIndex = 0;
