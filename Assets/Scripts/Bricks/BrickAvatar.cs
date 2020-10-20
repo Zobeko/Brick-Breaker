@@ -25,8 +25,6 @@ public class BrickAvatar : AbstractAvatar
         raycastsDistanceWidth = (height / 2) + 0.2f;
         raycastsDistanceheight = (width / 2) + 0.2f;
 
-        Debug.Log(width);
-        Debug.Log(height);
 
     }
 

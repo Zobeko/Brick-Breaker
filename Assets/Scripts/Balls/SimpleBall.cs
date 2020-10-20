@@ -18,4 +18,12 @@ public class SimpleBall : AbstractBall
             Speed = new Vector2(initialBallSpeed, initialBallSpeed) * Time.deltaTime;
         }
     }
+
+    private void Update()
+    {
+        //Augmentation de la vitesse de la balle au cours du jeu (augmente la difficulté)
+        initialBallSpeed += Time.deltaTime;
+    }
+
+    
 }

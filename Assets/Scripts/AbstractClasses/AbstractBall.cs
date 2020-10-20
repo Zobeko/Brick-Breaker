@@ -2,7 +2,8 @@
 
 public abstract class AbstractBall : MonoBehaviour
 {
-    
+    //On utilise tempSpeed afin de récuperer une vitesse dans l'update et d'ensuite l'appliquer au RigidBody dans FixedUpdate()
+    protected Vector2 tempSpeed = Vector2.zero;
     public Vector2 Speed
     {
         get { return this.GetComponent<Rigidbody2D>().velocity; }
@@ -52,49 +53,9 @@ public abstract class AbstractBall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        
 
-        if (col.transform.CompareTag("Roof"))
-        {
-            if(Speed.x <= 0)
-            {
-                Speed = new Vector2(-initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
-            }
-            else
-            {
-                Speed = new Vector2(initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
-            }
-
-            
-        }
-        else if (col.transform.CompareTag("Walls"))
-        {
-
-            if (Speed.x <= 0)
-            {
-                if(Speed.y <= 0)
-                {
-                    Speed = new Vector2(initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
-                }
-                else
-                {
-                    Speed = new Vector2(initialBallSpeed, initialBallSpeed) * Time.deltaTime;
-                }
-                
-            }
-            else
-            {
-                if (Speed.y <= 0)
-                {
-                    Speed = new Vector2(-initialBallSpeed, -initialBallSpeed) * Time.deltaTime;
-                }
-                else
-                {
-                    Speed = new Vector2(-initialBallSpeed, initialBallSpeed) * Time.deltaTime;
-                }
-            }
-        }
-
-        else if (col.transform.CompareTag("Player"))
+        if (col.transform.CompareTag("Player"))
         {
             if (Speed.x <= 0)
             {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2212473317328514016}
   - component: {fileID: 6458299801687815055}
   - component: {fileID: 62292314286333719}
+  - component: {fileID: 4310106166719508281}
   m_Layer: 8
   m_Name: RightWall
   m_TagString: Walls
@@ -108,6 +109,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9177132, y: 1.9141662}
   m_EdgeRadius: 0
+--- !u!114 &4310106166719508281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791152711757372171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cb043b50c958748a6b1627fd82043c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfRaycasts: 20
+  raycastsDirection: left
+  ballLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  gameManager: {fileID: 0}
 --- !u!1 &3979110051348220792
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +138,7 @@ GameObject:
   - component: {fileID: 2310249632123002450}
   - component: {fileID: 3169850542745111434}
   - component: {fileID: 8829933161804886496}
+  - component: {fileID: 6748355913240629453}
   m_Layer: 8
   m_Name: LeftWall (1)
   m_TagString: Roof
@@ -216,6 +236,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9177132, y: 1.9141662}
   m_EdgeRadius: 0
+--- !u!114 &6748355913240629453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3979110051348220792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cb043b50c958748a6b1627fd82043c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfRaycasts: 20
+  raycastsDirection: down
+  ballLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  gameManager: {fileID: 0}
 --- !u!1 &7237695233749660429
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +298,7 @@ GameObject:
   - component: {fileID: 3654946220928398814}
   - component: {fileID: 7326203104643768604}
   - component: {fileID: 1277815595414227055}
+  - component: {fileID: 7515611859483205837}
   m_Layer: 8
   m_Name: LeftWall
   m_TagString: Walls
@@ -344,7 +383,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004282713, y: 0.0013128519}
+  m_Offset: {x: -0.014115393, y: -0.005269289}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -355,5 +394,23 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9177132, y: 1.9141662}
+  m_Size: {x: 1.880917, y: 1.9010019}
   m_EdgeRadius: 0
+--- !u!114 &7515611859483205837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8923783333418839767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cb043b50c958748a6b1627fd82043c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfRaycasts: 20
+  raycastsDirection: right
+  ballLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  gameManager: {fileID: 0}

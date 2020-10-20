@@ -5049,6 +5049,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62292314286333719, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.005269289
+      objectReference: {fileID: 0}
+    - target: {fileID: 62292314286333719, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.9010019
+      objectReference: {fileID: 0}
+    - target: {fileID: 62292314286333719, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 62292314286333719, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.024489224
+      objectReference: {fileID: 0}
+    - target: {fileID: 62292314286333719, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.8773001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277815595414227055, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.005269289
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277815595414227055, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.9010019
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277815595414227055, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.014115393
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277815595414227055, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.880917
+      objectReference: {fileID: 0}
     - target: {fileID: 2816161663972666769, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5109,11 +5154,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roof
       objectReference: {fileID: 0}
+    - target: {fileID: 4310106166719508281, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 54730295}
+    - target: {fileID: 6748355913240629453, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 54730295}
     - target: {fileID: 7237695233749660429, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
         type: 3}
       propertyPath: m_Name
       value: Walls
       objectReference: {fileID: 0}
+    - target: {fileID: 7515611859483205837, guid: 5b132cb74cd59e1419d9ca4cc8733f64,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 54730295}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b132cb74cd59e1419d9ca4cc8733f64, type: 3}
 --- !u!1001 &5341297959988314936
