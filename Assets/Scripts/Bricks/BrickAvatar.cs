@@ -13,19 +13,22 @@ public class BrickAvatar : AbstractAvatar
     public float width = 0f;
     public float height = 0f;
     [SerializeField]private PlayerAvatar playerAvatar;
+    [SerializeField] protected int scoreValue = 0;
+
 
     //Enum qui contient les differents types de briques
     public enum BrickType { simpleBrick };
     public BrickType brickType;
 
 
-
+    
     void Start()
     {
-        
+        currentHealth = healthMax;
         playerAvatar = GameManager.instance.playerInstanceAvatar;
     }
 
+    
 
 
     protected void RaycastCollisions()
@@ -133,6 +136,7 @@ public class BrickAvatar : AbstractAvatar
     {
         if(currentHealth <= 0)
         {
+            Score.instance.scoreCpt += scoreValue;
             BricksFactory.ReleaseBrick(this);
         }
     }

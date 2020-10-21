@@ -47,7 +47,9 @@ public class GameManager : MonoBehaviour
         playerInstanceAvatar = playerInstance.GetComponent<PlayerAvatar>();
 
         //Balls instantiation
-        for (int i = 0; i < 3; i++)
+        int nbOfBallsToInstantiate = playerInstanceAvatar.balls.Length;
+
+        for (int i = 0; i < nbOfBallsToInstantiate; i++)
         {
             GameObject ball = Instantiate(ballPrefab);
             ball.transform.parent = this.transform;

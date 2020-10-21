@@ -24,9 +24,11 @@ public class PlayerAvatar : AbstractAvatar
     public GameObject currentBall = null;
     public int currentBallIndex = 0;
     [SerializeField] protected int numberOfAvailableBalls = 0;
+    private Animator animator = null;
 
     private void Awake()
     {
+        animator = this.GetComponent<Animator>();
         RigidBody = this.GetComponent<Rigidbody2D>();
         currentHealth = healthMax;
         numberOfAvailableBalls = balls.Length - currentBallIndex;
@@ -43,6 +45,6 @@ public class PlayerAvatar : AbstractAvatar
 
     void Update()
     {
-        
+        animator.SetInteger("_numberOfAvailableBalls", (4 - currentBallIndex));
     }
 }

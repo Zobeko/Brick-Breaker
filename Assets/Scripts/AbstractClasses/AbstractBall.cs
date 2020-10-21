@@ -19,6 +19,7 @@ public abstract class AbstractBall : MonoBehaviour
     public bool ballIsLaunched = false;
     
     [SerializeField] private GameObject player = null;
+    [SerializeField] private SpriteRenderer playerSpriteRenderer = null;
     [SerializeField] private Rigidbody2D playerRigidBody = null;
     [SerializeField] private PlayerAvatar playerAvatar = null;
     [SerializeField] private Rigidbody2D rigidBody = null;
@@ -32,6 +33,7 @@ public abstract class AbstractBall : MonoBehaviour
     {
         player = GameManager.instance.playerInstance;
         playerAvatar = player.GetComponent<PlayerAvatar>();
+        playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
         ballIsLaunched = false;
         playerRigidBody = player.GetComponent<Rigidbody2D>();
         rigidBody = this.GetComponent<Rigidbody2D>();
@@ -69,6 +71,9 @@ public abstract class AbstractBall : MonoBehaviour
             {
                 playerAvatar.currentBall = playerAvatar.balls[playerAvatar.currentBallIndex];
                 playerAvatar.currentBall.SetActive(true);
+                
+
+              
             }
 
         }

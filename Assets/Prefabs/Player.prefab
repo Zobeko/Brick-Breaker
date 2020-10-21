@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5893913675819658392}
   - component: {fileID: 5893913675819658388}
   - component: {fileID: 5893913675819658390}
+  - component: {fileID: 1429071322}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 58dcf4b0b3a298140b2bb200b46b6602, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e9df588af73c3a84b9bf1bd1656961d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,14 +136,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e946b1789870da4898c576da6fd2e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
   healthMax: 100
+  currentHealth: 0
   speed: {x: 0, y: 0}
   speedMax: 1300
   balls:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  currentBall: {fileID: 0}
+  currentBallIndex: 0
+  numberOfAvailableBalls: 0
 --- !u!114 &5893913675819658388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +172,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7192f1e3d11cb2f4b849cbd32f0c316a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1429071322
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5893913675819658399}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff0873476d88dc54ca84c0dcb27793b7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
