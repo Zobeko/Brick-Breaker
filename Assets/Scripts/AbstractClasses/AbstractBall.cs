@@ -20,6 +20,7 @@ public abstract class AbstractBall : MonoBehaviour
     
     [SerializeField] private GameObject player = null;
     [SerializeField] private Rigidbody2D playerRigidBody = null;
+    [SerializeField] private PlayerAvatar playerAvatar = null;
     [SerializeField] private Rigidbody2D rigidBody = null;
     public float initialBallSpeed = 0f;
     public float damages = 0;
@@ -30,6 +31,7 @@ public abstract class AbstractBall : MonoBehaviour
     private void Awake()
     {
         player = GameManager.instance.playerInstance;
+        playerAvatar = player.GetComponent<PlayerAvatar>();
         ballIsLaunched = false;
         playerRigidBody = player.GetComponent<Rigidbody2D>();
         rigidBody = this.GetComponent<Rigidbody2D>();
@@ -49,6 +51,38 @@ public abstract class AbstractBall : MonoBehaviour
         
         }
        
+    }
+
+    protected void BallRespawn()
+    {
+        float deathZoneY = playerRigidBody.position.y - 5f;
+        if(Position.y < deathZoneY)
+        {
+            
+            this.gameObject.SetActive(false);
+            playerAvatar.currentBallIndex++;
+            if(playerAvatar.currentBallIndex >= playerAvatar.balls.Length)
+            {
+                Debug.Log("Game Over");
+            }
+            else
+            {
+                playerAvatar.currentBall = playerAvatar.balls[playerAvatar.currentBallIndex];
+                playerAvatar.currentBall.SetActive(true);
+            }
+
+        }
+
+
+    }
+
+    protected void SpeedAugmentation()
+    {
+        if (ballIsLaunched)
+        {
+            //Augmentation de la vitesse de la balle au cours du jeu (augmente la difficulté)
+            initialBallSpeed += Time.deltaTime;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)

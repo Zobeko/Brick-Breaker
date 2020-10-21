@@ -8,11 +8,13 @@ public class InputManager : MonoBehaviour
     private void Start()
     {
         playerAvatar = this.GetComponent<PlayerAvatar>();
-        abstractBall = playerAvatar.currentBall.GetComponent<AbstractBall>();
+        
     }
 
     private void Update()
     {
+        abstractBall = playerAvatar.currentBall.GetComponent<AbstractBall>();
+
         //Gere les inputs de déplacements horizontaux
         HorizontalMovements();
 

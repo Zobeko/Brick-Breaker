@@ -19,15 +19,17 @@ public class PlayerAvatar : AbstractAvatar
         get { return speedMax; }
         set { speedMax = value; }
     }
-
+    
     public GameObject[] balls = new GameObject[3];
     public GameObject currentBall = null;
-    private int currentBallIndex = 0;
+    public int currentBallIndex = 0;
+    [SerializeField] protected int numberOfAvailableBalls = 0;
 
     private void Awake()
     {
         RigidBody = this.GetComponent<Rigidbody2D>();
         currentHealth = healthMax;
+        numberOfAvailableBalls = balls.Length - currentBallIndex;
     }
 
     void Start()

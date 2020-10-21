@@ -22,7 +22,7 @@ public class BrickAvatar : AbstractAvatar
 
     void Start()
     {
-        Debug.Log("Okkk");
+        
         playerAvatar = GameManager.instance.playerInstanceAvatar;
     }
 

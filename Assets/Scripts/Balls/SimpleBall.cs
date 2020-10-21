@@ -21,8 +21,9 @@ public class SimpleBall : AbstractBall
 
     private void Update()
     {
-        //Augmentation de la vitesse de la balle au cours du jeu (augmente la difficulté)
-        initialBallSpeed += Time.deltaTime;
+        SpeedAugmentation();
+
+        BallRespawn();
     }
 
     

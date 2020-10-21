@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             GameObject ball = Instantiate(ballPrefab);
+            ball.transform.parent = this.transform;
             ball.SetActive(false);
             playerInstance.GetComponent<PlayerAvatar>().balls[i] = ball;
         }
